@@ -30,21 +30,6 @@
      });
     </script>
 
-    <!-- django-credits JS -->
-    <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
-
-    <style>
-      #headline {
-          -vendor-animation-duration: 1s;
-          -vendor-animation-delay: 2s;
-          -moz-animation-duration: 1s;
-          -moz-animation-delay: 2s;
-          -webkit-animation-duration: 1s;
-          -webkit-animation-delay: 2s;
-      }
-    </style>
-
-
     <script>
      var getCredits = function() {
        var ajax_data = {};
@@ -59,63 +44,64 @@
            alert("Something went wrong.");
          }
        })};
-
-     $.fn.extend({
-       animateCss: function (animationName) {
-         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-         $(this).addClass('animated ' + animationName).one(animationEnd, function() {
-           $(this).removeClass('animated ' + animationName);
-         });
-       }
-     });
-
-     var showCredits = function(modal, data) {
-       modal.modal();
-       for (var i in data) {
-         var credit = data[i];
-         $("#headline").text(credit["headline"]).
-         $("#headline").animateCss(credit["entranceAnimation"]);
-         $("#headline").animateCss(credit["exitAnimation"]);
-         $("#headline").text("&nbsp;");
-       }
-//       var contributors = document.getElementById("contributors");
-
-     }
     </script>
+
+    <style>
+     .modal.and.carousel {
+         position: absolute;
+     }
+    </style>
   </head>
 
   <body>
-    <div class="modal fade" id="creditsModal" tabindex="-1" role="dialog"
-         aria-labelledby="gridSystemModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="gridSystemModalLabel">Credits</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <h1 class="animated" id="headline"></h1>
-            </div>
-            <div class="row">
-              <hr>
-            </div>
-            <div class="row">
-              <ul id="contributors">
-              </ul>
-            </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default"
-                    data-dismiss="modal">Close</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    <div class="container">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#lightbox" data-toggle="modal">Open Credits</a></li>
+      </ul>
 
+      <div class="modal fade and carousel slide" id="lightbox">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <ol class="carousel-indicators">
+                <li data-target="#lightbox" data-slide-to="0" class="active"></li>
+                <li data-target="#lightbox" data-slide-to="1"></li>
+                <li data-target="#lightbox" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="item active">
+                  <h1>Editor</h1>
+                  <hr/>
+                  <h2 class="pull-right">Crystal Simmons</h2>
+                </div>
+                <div class="item">
+                  <h1>Programming</h1>
+                  <hr/>
+                  <h2 class="pull-right">Bob Erb</h2>
+                  <img src="http://placehold.it/900x500/666/" alt="Second slide">
+                </div>
+                <div class="item">
+                  <h1>Design Team</h1>
+                  <hr/>
+                  <ul class="pull-right">
+                    <li>Crystal Simmons</li>
+                    <li>Bob Erb</li>
+                    <li>Andrea Higgins</li>
+                    <li>Skyelar Habberfield</li>
+                  </u2>
+                </div>
+              </div><!-- /.carousel-inner -->
+              <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#lightbox" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div><!-- /.modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+    </div><!-- /.container -->
   </body>
 </html>
