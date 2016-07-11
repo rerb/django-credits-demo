@@ -1,5 +1,5 @@
 """
-WSGI config for django_credits project.
+WSGI config for django_credits_harness project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_credits.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                      "django_credits_harness.settings")
 
 application = get_wsgi_application()

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="modal fade and carousel slide wrap"
+       id="creditsLightbox" data-ride="carousel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="carousel-inner">
+            {% for credit in credits %}
+              <div class="item {% if forloop.first %} active {% endif %}">
+                <h1 id="creditHeadline"
+                    style="padding-left: 70px">
+                  {{ credit.headline }}
+                </h1>
+                <div style="padding-left: 80px; padding-right: 80px">
+                  <hr>
+                </div>
+                <h2 class="pull-right" style="padding-right: 70px">
+                  <ul>
+                  {% for contributor in credit.contributors.all %}
+                    <li>
+                      {{ contributor }}
+                    </li>
+                  {% endfor %}
+                  </ul>
+                </h2>
+              </div>
+            {% endfor %}
+          </div><!-- /.carousel-inner -->
+        </div><!-- /.modal-body -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div><!-- /.container -->
