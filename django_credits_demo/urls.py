@@ -1,4 +1,4 @@
-""" urls.py for django_credits_harness project.
+""" urls.py for django_credits_demo project.
 """
 from django.conf.urls import url
 from django.contrib import admin
