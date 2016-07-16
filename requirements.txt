@@ -1,0 +1,3 @@
+Werkzeug
+django-credits==0.1.2
+django-extensions
